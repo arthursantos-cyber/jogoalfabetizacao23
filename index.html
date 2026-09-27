@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#080b14">
+  <title>Feed de Alfabetização — V17 Primeira Fase</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="boot-active">
+  <div id="start-screen" class="boot-screen start-screen" aria-label="Tela inicial">
+    <button id="start-game-button" class="start-game-button" type="button" aria-label="Iniciar jogo"></button>
+  </div>
+
+  <div id="loading-screen" class="boot-screen loading-screen" aria-hidden="true">
+    <div class="loading-content" role="status" aria-label="Carregando jogo">
+      <div class="emoji-runway" aria-hidden="true">
+        <span class="runner runner-1">😊</span>
+        <span class="runner runner-2">🎮</span>
+        <span class="runner runner-3">⭐</span>
+        <span class="runner runner-4">🧠</span>
+        <span class="runner runner-5">🚀</span>
+        <span class="runner runner-6">🐍</span>
+        <span class="runner runner-7 spin">🦖</span>
+        <span class="runner runner-8">🎯</span>
+      </div>
+      <div class="loading-track" aria-hidden="true"><span class="loading-fill"></span></div>
+    </div>
+  </div>
+
+  <audio id="background-music" src="musica-fundo.mp3" preload="auto" loop playsinline></audio>
+
+  <main id="app" class="app-hidden" aria-label="Jogo educacional de alfabetização">
+    <header class="top-bar">
+      <button id="theme-toggle" class="icon-button theme-toggle-button" type="button" aria-label="Mudar para tema claro" aria-pressed="false">☀</button>
+      <div class="top-actions">
+        <button id="saved-button" class="icon-button saved-heart-button" type="button" aria-label="Abrir fases curtidas"><svg class="heart-svg heart-svg-filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.2C10.9 20.1 4 15.9 2.5 10.9C1.3 6.9 3.7 3.5 7.4 3.5c2.1 0 3.7 1.2 4.6 2.6.9-1.4 2.5-2.6 4.6-2.6 3.7 0 6.1 3.4 4.9 7.4C20 15.9 13.1 20.1 12 21.2Z"/></svg></button>
+        <button id="settings-button" class="icon-button" type="button" aria-label="Abrir configurações">⚙</button>
+      </div>
+    </header>
+
+    <div id="feed" class="feed" aria-label="Feed de minijogos"></div>
+
+    <div id="feedback-layer" class="feedback-layer" aria-live="polite"></div>
+
+    <div id="settings-modal" class="modal" aria-hidden="true">
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <div class="modal-head">
+          <h2 id="settings-title">CONFIGURAÇÕES</h2>
+          <button class="modal-close" type="button" data-close-modal="settings-modal">×</button>
+        </div>
+        <button class="setting-row" type="button" data-setting="music"><span>🎵 Música</span><strong></strong></button>
+        <button class="setting-row" type="button" data-setting="effects"><span>✨ Efeitos</span><strong></strong></button>
+        <button class="setting-row" type="button" data-setting="voice"><span>🗣 Voz-guia</span><strong></strong></button>
+      </div>
+    </div>
+
+    <div id="saved-modal" class="modal" aria-hidden="true">
+      <div class="modal-panel saved-panel" role="dialog" aria-modal="true" aria-labelledby="saved-title">
+        <div class="modal-head">
+          <div>
+            <h2 id="saved-title">FASES CURTIDAS</h2>
+            <p>Toque em uma fase para abri-la no feed.</p>
+          </div>
+          <button class="modal-close" type="button" data-close-modal="saved-modal">×</button>
+        </div>
+        <div id="saved-list" class="saved-list"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
